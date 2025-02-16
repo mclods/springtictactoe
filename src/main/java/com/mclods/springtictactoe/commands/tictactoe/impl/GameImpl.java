@@ -3,24 +3,26 @@ package com.mclods.springtictactoe.commands.tictactoe.impl;
 import com.mclods.springtictactoe.commands.tictactoe.Game;
 import com.mclods.springtictactoe.commands.tictactoe.GameBoard;
 import com.mclods.springtictactoe.commands.tictactoe.Player;
-import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-@Component
-class GameImpl implements Game {
-    private final int BOARD_SIZE = 3;
+public class GameImpl implements Game {
     private final char PLAYER_1_SYMBOL = 'X', PLAYER_2_SYMBOL = 'O';
+
+    private final int boardSize;
     private final GameBoard gb;
-    private Player p1, p2, currentPlayer, winner;
-    private boolean gameWon, gameTie;
     private final Scanner sc;
 
-    public GameImpl() {
-        gb = new GameBoardImpl(BOARD_SIZE);
+    private Player p1, p2, currentPlayer, winner;
+    private boolean gameWon, gameTie;
+
+    public GameImpl(GameBoard gb, Scanner sc) {
+        this.gb = gb;
+        this.sc = sc;
+        boardSize = gb.getSize();
+
         gameWon = false;
         gameTie = false;
-        sc = new Scanner(System.in);
     }
 
     public void startGame() {
@@ -57,7 +59,7 @@ class GameImpl implements Game {
             System.out.printf("Choose a position for %s(%c) (1 - 9):\n", currentPlayer.getName(), currentPlayer.getSymbol());
             int position = Integer.parseInt(sc.nextLine()) - 1;
 
-            boolean positionIsValid = gb.updateBoard(position / BOARD_SIZE, position % BOARD_SIZE, currentPlayer.getSymbol());
+            boolean positionIsValid = gb.updateBoard(position / boardSize, position % boardSize, currentPlayer.getSymbol());
             if (positionIsValid) {
                 turnCompleted = true;
                 currentPlayer = currentPlayer.equals(p1) ? p2 : p1;

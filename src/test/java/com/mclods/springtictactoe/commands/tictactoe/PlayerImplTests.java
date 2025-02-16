@@ -11,13 +11,13 @@ public class PlayerImplTests {
 
     @Test
     @DisplayName("Get player name")
-    void testGetName() {
+    void testGetPlayerName() {
         assertEquals("Samuel", pl.getName());
     }
 
     @Test
     @DisplayName("Get player symbol")
-    void testGetSymbol() {
+    void testGetPlayerSymbol() {
         assertEquals('S', pl.getSymbol());
     }
 }

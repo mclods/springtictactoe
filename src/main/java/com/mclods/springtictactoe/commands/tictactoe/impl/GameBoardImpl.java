@@ -15,6 +15,11 @@ public class GameBoardImpl implements GameBoard {
     }
 
     @Override
+    public int getSize() {
+        return boardDim;
+    }
+
+    @Override
     public void printBoard() {
         for (char[] i : board) {
             for (char j : i) {

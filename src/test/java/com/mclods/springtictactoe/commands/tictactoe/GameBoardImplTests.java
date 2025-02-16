@@ -42,14 +42,14 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test empty board gets printed correctly")
-    void testEmptyBoardPrint() {
+    void testEmptyBoardGetsPrintedCorrectly() {
         gb.printBoard();
         assertEquals(EXPECTED_EMPTY_BOARD_PRINT, getConsoleOutput());
     }
 
     @Test
     @DisplayName("Test board gets updated correctly")
-    void testBoardGetsUpdated() {
+    void testBoardGetsUpdatedCorrectly() {
         boolean update1 = gb.updateBoard(0, 0, 'X');
         boolean update2 = gb.updateBoard(1, 1, 'O');
         boolean update3 = gb.updateBoard(2, 1, 'X');
@@ -74,7 +74,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test board is not updated if xy coordinates are wrong")
-    void testBoardIsNotUpdated() {
+    void testBoardIsNotUpdatedIfXYCoordinatesAreWrong() {
         gb.printBoard();
         assertEquals(EXPECTED_EMPTY_BOARD_PRINT, getConsoleOutput());
         testOutputStream.reset();
@@ -92,7 +92,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test board gets reset")
-    void testBoardIsReset() {
+    void testBoardGetsReset() {
         gb.updateBoard(0, 0, 'X');
         gb.updateBoard(1, 1, 'O');
         gb.updateBoard(2, 1, 'X');
@@ -118,7 +118,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test isBoardFull returns false when board is not full")
-    void testIsBoardFullWhenBoardNotFull() {
+    void testIsBoardFullReturnsFalseWhenBoardIsNotFull() {
         assertFalse(gb.isBoardFull());
 
         gb.updateBoard(0, 0, 'X');
@@ -129,7 +129,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test isBoardFull returns true when board is full")
-    void testIsBoardFullWhenBoardFull() {
+    void testIsBoardFullReturnsTrueWhenBoardIsFull() {
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
                 gb.updateBoard(i, j, 'X');
@@ -140,7 +140,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when first row is filled with same symbol")
-    void testCheckWinOnFirstRowFull() {
+    void testCheckWinReturnsTrueWhenFirstRowIsFilledWithSameSymbol() {
         gb.updateBoard(0, 0, 'X');
         gb.updateBoard(1, 0, 'O');
         gb.updateBoard(0, 1, 'X');
@@ -164,7 +164,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when second row is filled with same symbol")
-    void testCheckWinOnSecondRowFull() {
+    void testCheckWinReturnsTrueWhenSecondRowIsFilledWithSameSymbol() {
         gb.updateBoard(0, 0, 'X');
         gb.updateBoard(1, 0, 'O');
         gb.updateBoard(0, 1, 'X');
@@ -189,7 +189,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when third row is filled with same symbol")
-    void testCheckWinOnThirdRowFull() {
+    void testCheckWinReturnsTrueWhenThirdRowIsFilledWithSameSymbol() {
         gb.updateBoard(0, 0, 'X');
         gb.updateBoard(2, 0, 'O');
         gb.updateBoard(0, 1, 'X');
@@ -214,7 +214,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when first column is filled with same symbol")
-    void testCheckWinOnFirstColFull() {
+    void testCheckWinReturnsTrueWhenFirstColumnIsFilledWithSameSymbol() {
         gb.updateBoard(0, 0, 'X');
         gb.updateBoard(0, 1, 'O');
         gb.updateBoard(1, 0, 'X');
@@ -238,7 +238,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when second column is filled with same symbol")
-    void testCheckWinOnSecondColFull() {
+    void testCheckWinReturnsTrueWhenSecondColumnIsFilledWithSameSymbol() {
         gb.updateBoard(0, 1, 'X');
         gb.updateBoard(0, 2, 'O');
         gb.updateBoard(1, 1, 'X');
@@ -262,7 +262,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when third column is filled with same symbol")
-    void testCheckWinOnThirdColFull() {
+    void testCheckWinReturnsTrueWhenThirdColumnIsFilledWithSameSymbol() {
         gb.updateBoard(0, 0, 'X');
         gb.updateBoard(0, 2, 'O');
         gb.updateBoard(0, 1, 'X');
@@ -287,7 +287,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when first diagonal is filled with same symbol")
-    void testCheckWinOnFirstDiagonalFull() {
+    void testCheckWinReturnsTrueWhenFirstDiagonalIsFilledWithSameSymbol() {
         gb.updateBoard(0, 1, 'X');
         gb.updateBoard(0, 0, 'O');
         gb.updateBoard(2, 0, 'X');
@@ -312,7 +312,7 @@ public class GameBoardImplTests {
 
     @Test
     @DisplayName("Test checkWin returns true when second diagonal is filled with same symbol")
-    void testCheckWinOnSecondDiagonalFull() {
+    void testCheckWinReturnsTrueWhenSecondDiagonalIsFilledWithSameSymbol() {
         gb.updateBoard(0, 1, 'X');
         gb.updateBoard(0, 0, 'O');
         gb.updateBoard(0, 2, 'X');
