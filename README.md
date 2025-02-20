@@ -1,2 +1,2 @@
 # Spring Tic-Tac-Toe
-A tic-tac-toe game made using spring framework.
+A Tic-Tac-Toe console game made using spring shell.
