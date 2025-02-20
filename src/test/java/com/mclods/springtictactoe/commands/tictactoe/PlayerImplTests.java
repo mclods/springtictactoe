@@ -12,7 +12,7 @@ public class PlayerImplTests {
     @Test
     @DisplayName("Get player name")
     void testGetPlayerName() {
-        assertEquals("Samuel", pl.getName());
+        assertEquals("Samuelx", pl.getName());
     }
 
     @Test
